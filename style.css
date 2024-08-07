@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-image: url(GAB.jpeg);
     margin: 0;
     padding: 0;
     display: flex;
@@ -59,7 +59,7 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #1566c2;
 }
 
 .withdraw-options {
@@ -82,4 +82,8 @@ button:hover {
 #message, #balanceMessage {
     color: red;
     margin-top: 10px;
+}
+img{
+    width: 300px;
+    border-radius: 5px;
 }
