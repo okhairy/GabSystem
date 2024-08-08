@@ -8,12 +8,12 @@
 </head>
 <body>
     <div class="container">
-        <img src="GCASH.jpg">
-        <h1>Bienvenue sur GCASH</h1>
+        <img src="GCASH.jpg" alt="logo GCASH">
+        <h1>Bienvenue sur GABsimp</h1>
         <form id="loginForm" class="form">
             <div class="form-group">
                 <label for="cardId">Numéro de carte :</label>
-                <input type="text" id="cardId" required>
+                <input type="number" id="cardId" required>
             </div>
             <div class="form-group">
                 <label for="password">Mot de passe :</label>
@@ -23,6 +23,17 @@
         </form>
         <p id="message"></p>
     </div>
+
+    <!-- The Modal -->
+<div id="messageModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="modalMessage"></p>
+        <!-- L'espace pour le bouton de téléchargement sera ajouté dynamiquement -->
+    </div>
+</div>
+
+
     <script src="script.js"></script>
 </body>
 </html>
