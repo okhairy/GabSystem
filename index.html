@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAB - Identification</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="GCASH.jpg" alt="logo GCASH">
+        <h1>Bienvenue sur GABsimp</h1>
+        <form id="loginForm" class="form">
+            <div class="form-group">
+                <label for="cardId">Numéro de carte :</label>
+                <input type="number" id="cardId" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit">Se connecter</button>
+        </form>
+        <p id="message"></p>
+    </div>
+
+    <!-- The Modal -->
+<div id="messageModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="modalMessage"></p>
+        <!-- L'espace pour le bouton de téléchargement sera ajouté dynamiquement -->
+    </div>
+</div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

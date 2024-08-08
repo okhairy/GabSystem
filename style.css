@@ -1,0 +1,148 @@
+/* Styles appliqués au body de la page */
+body {
+    font-family: 'Arial', sans-serif; 
+    background-color: #f4f4f4; /* Définit la couleur de fond */
+    margin: 0; /* Supprime la marge par défaut */
+    padding: 0; /* Supprime le padding par défaut */
+    display: flex; /* Utilise un modèle de boîte flexible */
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    height: 100vh; /* Hauteur de la fenêtre visible */
+    background-color: #218838; /* Couleur de fond verte */
+}
+
+/* Styles appliqués à la classe container */
+.container {
+    background-color: #fff; /* Couleur de fond blanche */
+    padding: 20px; /* Ajoute du padding de 20px */
+    border-radius: 8px; /* Arrondit les coins du conteneur */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+    width: 300px; /* Largeur fixe de 300px */
+    text-align: center; /* Centre le texte à l'intérieur */
+}
+
+/* Styles appliqués aux titres de niveau 1 */
+h1 {
+    margin-bottom: 20px; /* Ajoute une marge inférieure de 20px */
+    color: #333; /* Définit la couleur du texte en gris foncé */
+}
+
+/* Styles appliqués à la classe form */
+.form {
+    display: flex; /* Utilise un modèle de boîte flexible */
+    flex-direction: column; /* Dispose les éléments en colonne */
+    gap: 15px; /* Espace de 15px entre les éléments */
+}
+
+/* Styles appliqués à la classe form-group */
+.form-group {
+    display: flex; /* Utilise un modèle de boîte flexible */
+    flex-direction: column; /* Dispose les éléments en colonne */
+    text-align: left; /* Aligne le texte à gauche */
+}
+
+/* Styles appliqués aux labels */
+label {
+    margin-bottom: 5px; /* Ajoute une marge inférieure de 5px */
+    color: #555; /* Définit la couleur du texte en gris moyen */
+}
+
+/* Styles appliqués aux champs input */
+input {
+    padding: 10px; /* Ajoute du padding de 10px */
+    border: 1px solid #ddd; /* Bordure grise claire */
+    border-radius: 4px; /* Arrondit les coins */
+}
+
+/* Styles appliqués aux boutons */
+button {
+    padding: 10px 20px; /* Ajoute du padding de 10px en haut et en bas, 20px à gauche et à droite */
+    border: none; /* Supprime les bordures */
+    border-radius: 4px; /* Arrondit les coins */
+    background-color: #1f63c1c8; /* Couleur de fond bleue */
+    color: #fff; /* Couleur du texte blanche */
+    font-size: 16px; /* Taille de la police de 16px */
+    cursor: pointer; /* Change le curseur au survol */
+    transition: background-color 0.3s ease; /* Transition douce pour la couleur de fond */
+    margin-top: 15px; /* Ajoute une marge supérieure de 15px */
+}
+
+/* Styles appliqués aux boutons au survol */
+button:hover {
+    background-color: #218838; /* Change la couleur de fond au survol */
+}
+
+/* Styles appliqués aux options de retrait */
+.withdraw-options {
+    display: flex; /* Utilise un modèle de boîte flexible */
+    justify-content: space-between; /* Espace les éléments de manière égale */
+    margin-bottom: 20px; /* Ajoute une marge inférieure de 20px */
+}
+
+/* Styles appliqués aux options de retrait individuelles */
+.withdrawOption {
+    flex: 1; /* Chaque option prend une part égale de l'espace disponible */
+    margin: 0 5px; /* Ajoute une marge horizontale de 5px */
+    background-color: #0b5db6cf; /* Couleur de fond bleue */
+    color: #fff; /* Couleur du texte blanche */
+}
+
+/* Styles appliqués aux options de retrait au survol */
+.withdrawOption:hover {
+    background-color: #00b31ba3; /* Change la couleur de fond au survol */
+}
+
+/* Styles appliqués aux messages d'erreur et de solde */
+#message, #balanceMessage {
+    color: red; /* Couleur du texte rouge */
+    margin-top: 10px; /* Ajoute une marge supérieure de 10px */
+}
+
+/* Styles appliqués au modal */
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed; /* Position fixe */
+    z-index: 1; /* Niveau de superposition */
+    left: 0; /* Position à gauche */
+    top: 0; /* Position en haut */
+    width: 100%; /* Largeur complète */
+    height: 100%; /* Hauteur complète */
+    overflow: auto; /* Ajoute un défilement si nécessaire */
+    background-color: rgb(0,0,0); /* Couleur de fond de secours */
+    background-color: rgba(0,0,0,0.4); /* Couleur de fond noire avec opacité */
+    backdrop-filter: blur(5px); /* Floute l'arrière-plan */
+    padding-top: 60px; /* Ajoute du padding en haut */
+}
+
+/* Styles appliqués au contenu du modal */
+.modal-content {
+    background-color: #fefefe; /* Couleur de fond blanche */
+    margin: 5% auto; /* Centrage automatique */
+    padding: 20px; /* Ajoute du padding de 20px */
+    border: 1px solid #888; /* Bordure grise */
+    width: 80%; /* Largeur de 80% */
+    max-width: 500px; /* Largeur maximale de 500px */
+    border-radius: 8px; /* Arrondit les coins */
+}
+
+/* Styles appliqués au bouton de fermeture du modal */
+.close {
+    color: #aaa; /* Couleur du texte grise */
+    float: right; /* Flotte à droite */
+    font-size: 28px; /* Taille de la police de 28px */
+    font-weight: bold; /* Texte en gras */
+}
+
+/* Styles appliqués au bouton de fermeture du modal au survol */
+.close:hover,
+.close:focus {
+    color: black; /* Change la couleur du texte au survol ou au focus */
+    text-decoration: none; /* Supprime la décoration du texte */
+    cursor: pointer; /* Change le curseur au survol */
+}
+
+/* Styles appliqués aux images */
+img {
+    width: 300px; /* Largeur fixe de 300px */
+    border-radius: 5px; /* Arrondit les coins de l'image */
+}

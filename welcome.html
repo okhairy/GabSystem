@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAB - Accueil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="GCASH.jpg" alt="logo GCASH">
+        <h1 id="welcomeMessage"></h1>
+        <button id="checkBalanceButton">Consulter votre solde</button>
+        <p id="balanceMessage"></p>
+        <button id="withdrawButton">Effectuer un retrait</button>
+        <button id="logoutButton">Déconnexion</button>
+    </div>
+
+    <!-- Le Modal -->
+    <div id="messageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</body>
+</html>
