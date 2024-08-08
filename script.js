@@ -1,12 +1,24 @@
 // Données des utilisateurs
-const users = [
-    { id: 123456, firstName: "Ousmane", lastName: "Fall", password: "00000", balance: 100000, attempts: 3 },
-    { id: 234567, firstName: "Ahmadou Bamba", lastName: "Diop", password: "11111", balance: 200000, attempts: 3 },
-    { id: 345678, firstName: "Oumou Khairy", lastName: "Ndiaye", password: "22222", balance: 300000, attempts: 3 },
-    { id: 456789, firstName: "Bamba Mbacké", lastName: "Thiam", password: "33333", balance: 400000, attempts: 3 },
-    { id: 567890, firstName: "Ousmane Eldiey", lastName: "Sow", password: "44444", balance: 500000, attempts: 3 }
-];
+const utilisateurs = [
+    { id: 123456, firstName: "Ousmane", lastName: "Fall", password: "00000", balance: 100000, attempts: 3 , bloque: false},
+    { id: 234567, firstName: "Ahmadou Bamba", lastName: "Diop", password: "11111", balance: 200000, attempts: 3 , bloque: false},
+    { id: 345678, firstName: "Oumou Khairy", lastName: "Ndiaye", password: "22222", balance: 300000, attempts: 3, bloque: false },
+    { id: 456789, firstName: "Bamba Mbacké", lastName: "Thiam", password: "33333", balance: 400000, attempts: 3, bloque: false },
+    { id: 567890, firstName: "Ousmane Eldiey", lastName: "Sow", password: "44444", balance: 500000, attempts: 3, bloque: false },
+    { id: 678901, firstName: "Leo", lastName: "Moumba", password: "44444", balance: 500000, attempts: 3, bloque: false }
 
+];
+// Enregistrer le tableau d'utilisateurs dans le localStorage
+localStorage.setItem('utilisateurs', JSON.stringify(utilisateurs));
+
+// Récupérer les utilisateurs depuis le localStorage
+const usersString = localStorage.getItem('users');
+
+// Convertir la chaîne de caractères JSON en objet JavaScript
+const users = JSON.parse(usersString);
+
+// Afficher les utilisateurs
+console.log(users);
 // Récupération de l'utilisateur actuellement connecté depuis le stockage local
 let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
@@ -54,16 +66,23 @@ function handleLoginForm(e) {
 
     if (user) {
         if (user.password === password) {
-            currentUser = user; // Stocke l'utilisateur courant
-            user.attempts = 3; // Réinitialise les tentatives
-            localStorage.setItem('currentUser', JSON.stringify(currentUser)); // Stocke l'utilisateur dans le localStorage
-            window.location.href = 'welcome.html'; // Redirige vers la page d'accueil
-        } else {
+            if (user.bloque == true){
+                showModal('Votre compte est bloqué. Veuillez vous rapprocher au service client');
+            } else{
+                currentUser = user; // Stocke l'utilisateur courant
+                user.attempts = 3; // Réinitialise les tentatives
+                localStorage.setItem('currentUser', JSON.stringify(currentUser)); // Stocke l'utilisateur dans le localStorage
+                window.location.href = 'welcome.html'; // Redirige vers la page d'accueil
+            }
+            
+        }else  {
             user.attempts--; // Décrémente les tentatives restantes
             if (user.attempts > 0) {
                 showModal(`Mot de passe incorrect. Tentatives restantes: ${user.attempts}`);
             } else {
                 showModal('Votre compte est bloqué.');
+                user.bloque = true
+                localStorage.setItem('users', JSON.stringify(users));
             }
         }
     } else {
@@ -96,7 +115,7 @@ function handleWithdraw(amount) {
     // Redirection après un délai pour permettre à l'utilisateur de voir le message
     setTimeout(() => {
         window.location.href = 'welcome.html'; // Redirige vers la page d'accueil
-    }, 2000); // Délai de 2 secondes avant redirection
+    }, 7000); // Délai de 2 secondes avant redirection
 }
 
 // Fonction pour générer un PDF pour le reçu
@@ -106,7 +125,7 @@ function generatePDF(receipt) {
 
     // Création du contenu du PDF
     doc.text(`Reçu de retrait`, 20, 20);
-    doc.text(`N° reçu : ${receipt.receiptNumber}`, 20, 30);
+    doc.text(`N° reçu : GCash_${receipt.receiptNumber}`, 20, 30);
     doc.text(`N° card ID : ${receipt.cardId}`, 20, 40);
     doc.text(`Montant retiré : ${receipt.amount} francs`, 20, 50);
     doc.text(`Date : ${receipt.date}`, 20, 60);
@@ -180,10 +199,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Ajout d'un écouteur d'événement pour le bouton de retrait personnalisé
         document.getElementById('withdrawButton').addEventListener('click', function() {
             const amount = parseInt(document.getElementById('customAmount').value); // Récupération du montant personnalisé
-            if (isNaN(amount) || amount <= 0) {
-                showModal('Veuillez entrer un montant valide.');
+            if (isNaN(amount) || amount < 1000 || amount % 1000 !== 0 || amount != flo) {
+                showModal('Le montant doit être un multiple de 1000 et supérieur ou égal à 1000.');
             } else {
                 handleWithdraw(amount); // Gestion du retrait pour le montant personnalisé
+
+
             }
         });
 
